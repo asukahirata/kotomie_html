@@ -1,0 +1,131 @@
+$main_color: #B6002A;
+$text_color: #000;
+
+//ブレイクポイント
+$breakpoints: (
+  "tab": "screen and (max-width: 1199px)",
+  "sp": "screen and (max-width: 630px)",
+  "5s": "screen and (max-width: 332px)",
+);
+
+@mixin mq($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+};
+
+@mixin mq($breakpoint: tab) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+};
+
+
+
+@mixin alert {
+  position: relative;
+  &::before {
+    content: " ";
+    position: absolute;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+@mixin social_btn {
+  height: 40px;
+  width: 270px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  position: relative;
+  text-align: center;
+  &::before {
+    content: " ";
+    height: 100%;
+    width: 25px;
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    @include mq('sp') {
+      width: 28px;
+    }
+  }
+  &[name=login_line] {
+    background-color: #06C755;
+    color: #fff;
+    &::before {
+      background-image: url(../img/line_icon.svg);
+    }
+    &::after {
+      content: " ";
+      position: absolute;
+      height: 100%;
+      width: 1px;
+      background-color: rgba(0, 0, 0, 0.08);
+      top: 0;
+      left: 47px;
+      @include mq('sp') {
+        left: 52px;
+      }
+    }
+  }
+  &[name=login_twitter] {
+    background-color: #000;
+    color: #fff;
+    &::before {
+      background-image: url(../img/x_icon.svg);
+    }
+  }
+  &[name=login_facebook] {
+    background-color: #1877F2;
+    color: #fff;
+    &::before {
+      background-image: url(../img/fb_icon.svg);
+    }
+  }
+  &[name=login_google] {
+    background-color: #fff;
+    border: 1px solid #747775;
+    color: #1F1F1F;
+    &::before {
+      background-image: url(../img/google_icon.svg);
+    }
+  }
+  &[name=login_yahoo] {
+    background-color: #FF0033;
+    color: #fff;
+    padding-left: 34px;
+    &::before {
+      background-image: url(../img/yahoo_icon.svg);
+    }
+  }
+  &[name=login_amazon] {
+    border: 1px solid #A88734;
+    background: linear-gradient(180deg, #F7DFA5 0%, #F0C14B 100%);
+    color: #000;
+    padding-left: 50px;
+    @include mq('tab') {
+      padding-left: 0;
+    }
+    &::before {
+      width: 62px;
+      left: 18%;
+      background-image: url(../img/amazon_icon.svg);
+      @include mq('tab') {
+        left: 12%;
+      }
+      @include mq('sp') {
+        left: 16%;
+      }
+    }
+  }
+}

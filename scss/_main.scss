@@ -1,0 +1,1096 @@
+@use "common";
+
+/*---------------------------------
+
+  共通
+
+---------------------------------*/
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 1.6em;
+  color: common.$text_color;
+  line-height: 1.7;
+  background-color: #fff;
+}
+a {
+  text-decoration: none;
+  transition: .5s;
+  &:hover {
+    opacity: .7;
+  }
+}
+button {
+  &:hover {
+    opacity: .7;
+  }
+}
+img {
+  width: 100%;
+}
+#wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+h4 {
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+//pcのみ改行
+.br_pc {
+  @include common.mq('tab') {
+    display: none;
+  }
+}
+//tabサイズ以下で改行
+.br_tab {
+  display: none;
+  @include common.mq('tab') {
+    display: block;
+  }
+}
+//spのみで改行
+.br_sp {
+  display: none;
+  @include common.mq('sp') {
+    display: block;
+  }
+}
+.btn {
+  border-radius: 30px;
+  padding: 10px 58px;
+  font-size: 16px;
+}
+.btn_red {
+  background-color: common.$main_color;
+  color: #fff;
+  font-weight: bold;
+  a {
+    color: #fff;
+    padding: 0 !important;
+    font-weight: bold;
+  }
+}
+.btn_wh {
+  background-color: #fff;
+  border: 1px solid common.$main_color;
+  a, button {
+    color: common.$main_color;
+    padding: 0 !important;
+    font-weight: bold;
+  }
+}
+.btn_red,
+  .btn_wh {
+    &:has(.max-content) {
+      width: max-content;
+      padding: 10px 30px;
+    }
+  }
+// 横並びのボタン
+.btn_wrap {
+  display: flex;
+  justify-content: center;
+  @include common.mq('sp') {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 180px;
+    white-space: nowrap;
+    @include common.mq('sp') {
+      width: 200px;
+    }
+  }
+  .btn_wh {
+    margin-right: 30px;
+    @include common.mq('sp') {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+//各ページのタイトル
+.title_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 145px;
+  background-image: url(../img/title_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include common.mq('sp') {
+    height: 110px;
+    background-image: url(../img/title_bg_sp.png);
+  }
+  h3 {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 3.4rem;
+    color: #fff;
+    font-weight: bold;
+    @include common.mq('sp') {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+// 横に線のあるタイトル
+.title_line_left {
+  font-size: 18px;
+  border-left: 2px solid common.$main_color;
+  padding-left: 17px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-align: left;
+  position: relative;
+  width: max-content;
+  @include common.mq('sp') {
+    width: auto;
+  }
+  &.required {
+    &::after {
+      content: "*";
+      color: common.$main_color;
+      margin-left: 5px;
+    }
+  }
+}
+
+// 下に線のあるタイトル
+.title_line_bottom {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  position: relative;
+  &::before {
+    content: " ";
+    position: absolute;
+    background-color: common.$main_color;
+    width: 20px;
+    height: 2px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+ul.red {
+  color: common.$main_color;
+  list-style: disc;
+  width: max-content;
+}
+.form-check {
+  display: flex;
+  align-items: center;
+  .form-check-input {
+    margin-right: 10px;
+  }
+}
+.border-top{
+  border-top:1px solid #C8C8C8 !important;
+  padding-top: 60px;
+}
+.text {
+  font-size: 16px;
+  &_red {
+    color: common.$main_color;
+  }
+}
+.text_s {
+  font-size: 14px;
+}
+
+.error_msg {
+  color: common.$main_color;
+  font-size: 14px;
+  padding: 0 0 0 22px;
+  margin-top: 10px;
+  @include common.alert;
+  &::before {
+    background-image: url(../img/pepicons-pop_exclamation-circle-filled.svg);
+  }
+}
+.link_text {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 47px;
+  button, a {
+    color: #977D64;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    padding: 0;
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+.logout_btn {
+  border-radius: 30px;
+  border: 1px solid #977D64;
+  background-color: #fff;
+  height: 34px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #977D64;
+&::before {
+    content: " ";
+    width: 12px;
+    height: 12px;
+    background-image: url(../img/logout_icon.svg);
+    background-size: contain;
+    margin-right: 6px;
+  }
+&:hover {
+  background-color: #977D64;
+  color: #fff;
+  &::before {
+    background-image: url(../img/logout_icon_wh.svg);
+  }
+}
+}
+.contents {
+  margin: 60px auto;
+  width: min( 1000px, 90% );
+  background-color: #F7F7F7;
+  padding: 60px;
+  border-radius: 10px;
+  @include common.mq('tab') {
+    width: calc( 100% - 40px );
+    padding: 60px 20px;
+  }
+  .inner {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    .login_block,
+    .social_block {
+      width: 50%;
+      @include common.mq('tab') {
+        width: 100%;
+      }
+    }
+  }
+  .input_wrap {
+    margin-bottom: 20px;
+    .form-label {
+      font-size: 16px;
+    }
+    .form-control {
+      font-size: 16px;
+      border: 1px solid #C8C8C8;
+      border-radius: 4px;
+      padding: 8px;
+      &.error_input {
+        border: 1px solid common.$main_color;
+      }
+    }
+  }
+  .btn_red[name=login] {
+    color: #fff;
+    margin: 0 auto 30px;
+    display: flex;
+    font-weight: bold;
+  }
+  .login_block {
+    border-right: 1px solid #C8C8C8;
+    padding-right: 80px;
+    position: relative;
+    @include common.mq('tab') {
+      padding-right: 0; 
+      padding-bottom: 50px;
+      border-right: 0;
+      border-bottom: 1px solid #C8C8C8;
+    }
+    &::before {
+      content: "または";
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      right: -35px;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #999;
+      border: 1px solid #C8C8C8;
+      transform: translateY(-50%);
+      @include common.mq('tab') {
+        transform: translateX(-50%);
+        top: inherit;
+        right: inherit;
+        left: 50%;
+        bottom: -35px;
+      }
+    }
+    .form-check {
+      width: max-content;
+      margin: 0 auto 10px;
+    }
+  }
+  .social_block {
+    padding-left: 80px;
+    @include common.mq('tab') {
+      padding-left: 0; 
+      padding-top: 70px;
+    }
+    ul {
+      padding-left: 0;
+    }
+    .btn_social {
+      @include common.social_btn;
+      @include common.mq('sp') {
+        width: 100%;
+        height: 50px;
+      }
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+  
+}
+.register_wrap {
+  margin: 60px auto;
+  text-align: center;
+}
+.banner_wrap {
+  background-color: #F7F7F7;
+  padding: 60px 0 40px;
+  @include common.mq('tab') {
+    padding: 60px 20px 20px;
+  }
+  .inner {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    a {
+      width: 49%;
+      @include common.mq('tab') {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .text_s {
+    text-align: center;
+    a {
+      color: #977D64;
+    }
+  }
+  .link_wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    @include common.mq('tab') {
+      display: none;
+      //flex-direction: column;
+      //align-items: center;
+    }
+    a {
+      font-size: 14px;
+      margin: 0 20px;
+      text-decoration: underline;
+      color: #977D64;
+      @include common.mq('sp') {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.service_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include common.mq('tab') {
+    flex-wrap: wrap;
+  }
+  .item {
+    position: relative;
+    width: 48%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    padding: 20px 0;
+    background-color: #fff;
+    @include common.mq('tab') {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    img + a,
+    img + p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 0px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #000;
+      border: 1px solid #000;
+      @include common.mq('sp') {
+        padding: 0px 8px;
+      }
+      &.arrow {
+        padding: 0px 34px;
+        pointer-events: none;
+        @include common.mq('sp') {
+          padding: 0px 20px;
+        }
+        &::after {
+          content: " ";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          background-image: url(../img/check.svg);
+          width: 5px;
+          height: 10px;
+          margin-left: 12px;
+        }
+      }
+    }
+    &.active {
+      border: 2px solid common.$main_color;
+      p {
+        color: #fff;
+        pointer-events: none;
+        background-color: common.$main_color;
+        border: none;
+        &::before {
+          content: " ";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          background-image: url(../img/check_icon.svg);
+          width: 22px;
+          height: 22px;
+          margin-right: 2px;
+        }
+      }
+      .withdrawal {
+        font-size: 14px;
+        text-decoration: underline;
+        color: #977D64;
+        bottom: 16%;
+        position: absolute;
+        right: 18%;
+        @include common.mq('tab') {
+          right: 21%;
+        }
+        @include common.mq('sp') {
+          right: 16%;
+        }
+      }
+    }
+    img {
+      height: 100%;
+      width: 50%;
+      border-right: 1px solid #C8C8C8;
+      object-fit: contain;
+    }
+  }
+}
+.btn_red {
+  &:has(.btn_center) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 200px;
+  }
+}
+.btn_wh {
+  &:has(.btn_center) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 0;
+    width: 180px;
+    padding: 10px 0;
+  }
+}
+.btn_wrap {
+  .btn_red {
+    &:has(.large) {
+        width: max-content !important;
+        padding: 10px 30px;
+        @include common.mq('sp') {
+        width: 200px;
+        padding: 10px 20px;
+      }
+    }
+    
+  }
+}
+/*---------------------------------
+
+  利用規約
+
+---------------------------------*/
+.terms_reagreement {
+  .contents {
+    padding: 60px 150px;
+    margin-bottom: 60px;
+    @include common.mq('sp') {
+      padding: 60px 20px;
+    }
+    .text {
+      margin-bottom: 50px;
+    }
+    .text_wrap {
+      padding: 30px;
+      border-radius: 4px;
+      border: 1px solid #C8C8C8;
+      background: #FFF;
+      height: 150px;
+      overflow-y: scroll;
+      margin-bottom: 50px;
+      @include common.mq('sp') {
+        padding: 20px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 160%;
+      }
+    }
+    .form-check {
+      font-size: 16px;
+      margin-bottom: 45px;
+      a {
+        text-decoration-line: underline;
+        color: #000;
+      }
+    }
+  }
+}
+
+/*---------------------------------
+
+  マイページ
+
+---------------------------------*/
+.mypage {
+  .contents {
+    width: min(1200px, 90%);
+    padding: 60px 100px;
+    & +  .contents {
+      margin: 30px auto;
+    }
+    @include common.mq('sp') {
+      padding: 60px 30px;
+    }
+    &.bg_wh {
+      background-color: #fff;
+      padding: 0;
+    }
+  }
+  .btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    a, button {
+      width: 23%;
+      padding: 37px 0;
+      border-radius: 4px;
+      border: 2px solid common.$main_color;
+      background: #FFF;
+      font-size: 16px;
+      color: common.$main_color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      @include common.mq('tab') {
+        width: 48%;
+        margin-bottom: 15px;
+      }
+      @include common.mq('sp') {
+        padding: 30px 0;
+      }
+      &::before {
+        content: " ";
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-bottom: 10px;
+        width: 55px;
+        height: 55px;
+      }
+      &:nth-child(1) {
+        &::before {
+          background-image: url(../img/lucide_clipboard-list.svg);
+        }
+      }
+      &:nth-child(2) {
+        &::before {
+          background-image: url(../img/lucide_arrow-left-right.svg);
+          
+        }
+      }
+      &:nth-child(3) {
+        &::before {
+          background-image: url(../img/lucide_mail.svg);
+          
+        }
+      }
+      &:nth-child(4) {
+        &::before {
+          background-image: url(../img/lucide_lock-keyhole.svg);
+          
+        }
+      }
+    }
+  }
+  .logout_block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: min(1000px, 90%);
+    margin: 0 auto 60px;
+    @include common.mq('tab') {
+      margin-right: 20px;
+      flex-direction: column;
+      justify-content: right;
+      align-items: flex-end;
+    }
+    .link_text {
+      margin-bottom: 0;
+      @include common.mq('tab') {
+        margin-bottom: 26px;
+      }
+      
+    }
+  }
+  .alert_msg {
+    color: #000;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 15px 15px 15px 50px;
+    background: #FFF;
+    width: min( 1000px, 90% );
+    margin: 60px auto 0;
+    @include common.alert;
+    &::before {
+      left: 15px;
+    }
+    @include common.mq('tab') {
+      margin: 60px 20px 20px 20px;
+      width: calc(100% - 40px);
+      &::before {
+        top: 30px;
+      }
+    }
+    &.error_msg {
+      border: 1px solid #B6002A;
+      &::before {
+        background-image: url(../img/pepicons-pop_exclamation-circle-filled.svg);
+      }
+    }
+    &.success_msg {
+      border: 1px solid #259D63;
+      &::before {
+        background-image: url(../img/success_icon.svg);
+      }
+    }
+  }
+  .text.text-center.fw-light.mb-5 {
+    @include common.mq('sp') {
+      text-align: left !important;
+    }
+  }
+  .form-check.justify-content-center.mb-3 {
+    @include common.mq('sp') {
+      align-items: flex-start;
+    }
+    + .text_s {
+      @include common.mq('sp') {
+        text-align: left !important;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+  // モーダルの中身
+  .modal-dialog {
+    width: min( 1000px, 95% );
+    max-width: inherit;
+    @include common.mq('tab') {
+      margin: auto;
+    }
+    .modal-content {
+      border-radius: 10px;
+      background: #F7F7F7;
+      padding: 60px 150px;
+      @include common.mq('tab') {
+        padding: 60px 18px;
+        top: 100px;
+      }
+
+      .modal-header {
+        border-bottom: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        @include common.mq('tab') {
+          top: -80px;
+          right: 0;
+        }
+        .btn-close {
+          background-image: url(../img/closed.svg);
+          background-size: 100%;
+          width: 50px;
+          height: 50px;
+          opacity: 1;
+        }
+      }
+      .modal-body {
+        padding: 0;
+        > p {
+          text-align: center;
+          margin-bottom: 50px;
+          
+          &:first-child {
+            font-size: 20px;
+          }
+          &:nth-child(2) {
+            @include common.mq('tab') {
+              text-align: left;
+            }
+          }
+        }
+        .social_block {
+          ul {
+            padding-left: 0;
+            li {
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              position: relative;
+              margin-bottom: 15px;
+              @include common.mq('tab') {
+                margin-bottom: 60px;
+                justify-content: space-between;
+              }
+              &::before {
+                content: " ";
+                width: 50px;
+                height: 50px;
+              }
+              &:nth-child(1) {
+                &::before {
+                  background-image: url(../img/line_icon_s.svg);
+                }
+              }
+              &:nth-child(2) {
+                &::before {
+                  background-image: url(../img/x_icon_s.svg);
+                }
+              }
+              &:nth-child(3) {
+                &::before {
+                  background-image: url(../img/facebook_icon_s.svg);
+                }
+              }
+              &:nth-child(4) {
+                &::before {
+                  background-image: url(../img/google_icon_s.svg);
+                }
+              }
+              &:nth-child(5) {
+                &::before {
+                  background-image: url(../img/yahoo_icon_s.svg);
+                }
+              }
+              &:nth-child(6) {
+                &::before {
+                  background-image: url(../img/amazon_icon_a.svg);
+                }
+              }
+              span {
+                margin: 0 28px;
+                width: 120px;
+                @include common.mq('tab') {
+                  margin: 0 auto 0 17px;
+                  width: auto;
+                }
+              }
+              p {
+                margin-bottom: 0;
+                margin-right: 60px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 130px;
+                height: 34px;
+                @include common.mq('tab') {
+                  margin-right: 0;
+                  width: 110px;
+                }
+                &.done {
+                  background-color: common.$main_color;
+                  color: #fff;
+                  &::before {
+                    content: " ";
+                    background-image: url(../img/check_icon.svg);
+                    width: 22px;
+                    height: 22px;
+                    margin-right: 2px;
+                  }
+                  
+                }
+                &:not([class]) {
+                  color: #000;
+                  border: 1px solid #000;
+                  background: #FFF;
+                }
+              }
+              .btn_wh {
+                color: common.$main_color;
+                font-weight: bold;
+                width: 270px;
+                @include common.mq('tab') {
+                  margin-top: 15px;
+                  width: 100%;
+                }
+              }
+              .btn_social {
+                @include common.social_btn;
+                margin-bottom: 0;
+                @include common.mq('tab') {
+                  margin-top: 15px;
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .modal-footer {
+        border-top: none;
+        .btn_wh {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 20px auto 0;
+          width: 180px;
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+}
+
+
+/*---------------------------------
+
+  ログアウト
+
+---------------------------------*/
+.logout {
+  .contents {
+    margin-bottom: 60px;
+  }
+  .text {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+
+/*---------------------------------
+
+  マイページ　登録情報確認
+
+---------------------------------*/
+.profile {
+  .icon_title {
+    width: min(1000px, 90%);
+    font-size: 20px;
+    margin: 60px auto 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid common.$main_color;
+    padding-bottom: 15px;
+    @include common.mq('tab') {
+      width: calc(100% - 40px);
+    }
+    &::before {
+      content: " ";
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      margin-right: 15px;
+    }
+    &.clipboard-list {
+      &::before {
+        background-image: url(../img/lucide_clipboard-list.svg);
+      }
+    }
+    &.lock-keyhole {
+      &::before {
+        background-image: url(../img/lucide_lock-keyhole.svg);
+      }
+    }
+    &.lucide_mail {
+      &::before {
+        background-image: url(../img/lucide_mail.svg);
+      }
+    }
+  }
+  .contents {
+    padding: 60px 150px;
+    margin-bottom: 60px;
+    @include common.mq('tab') {
+      padding: 60px 20px;
+      margin: 40px auto 60px;
+    }
+  }
+  dl {
+    margin-top: 70px;
+    margin-bottom: 40px;
+    div {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #C8C8C8;
+      padding: 25px 0;
+      font-size: 16px;
+      @include common.mq('tab') {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      @include common.mq('sp') {
+        padding: 20px 0;
+      }
+      dt {
+        width: 40%;
+        @include common.mq('tab') {
+          width: 100%;
+        }
+        &.required {
+          span {
+            position: relative;
+            &::before {
+              content: "*";
+              color: common.$main_color;
+              position: absolute;
+              right: -22px;
+              top: -5px;
+            }
+          }
+        }
+      }
+      dd {
+        width: 60%;
+        @include common.mq('tab') {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .required_text {
+    color: common.$main_color;
+    margin-bottom: 17px;
+  }
+  .check_wrap {
+    display: flex;
+    align-items: center;
+    .form-check {
+      width: max-content;
+      margin-right: 30px;
+    }
+  }
+  .input_wrap.mb-5.w-75.mx-auto {
+    @include common.mq('sp') {
+      width: 100% !important;
+    }
+  }
+}
+
+/*---------------------------------
+
+  新規登録
+
+---------------------------------*/
+.register {
+  .check_link {
+    margin: 0 0 10px 0 !important;
+    flex-wrap: wrap;
+    a {
+      color: #000;
+      text-decoration: underline;
+    }
+    .error_msg {
+      width: 100%;
+    }
+  }
+  .btn_red {
+    display: block;
+    margin: 40px auto 0;
+  }
+  .login_block {
+    @include common.mq('sp') {
+      padding-bottom: 60px;
+    }
+  }
+}
+.complete_provisional {
+  .contents {
+    padding: 60px 150px;
+    @include common.mq('tab') {
+      padding: 60px 20px;
+    }
+  }
+  ul {
+    color: common.$main_color;
+    list-style: disc;
+  }
+}
+
+/*---------------------------------
+
+  
+
+---------------------------------*/
+
+
+/*---------------------------------
+
+  
+
+---------------------------------*/
+
+
