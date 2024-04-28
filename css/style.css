@@ -137,7 +137,7 @@ header .menu-trigger[aria-expanded=true] span {
   width: 20px;
   height: 2px;
   margin-bottom: -2px;
-  background-color: #B6002A;
+  background-color: #6E3A1D;
 }
 header .menu-trigger[aria-expanded=true] span:nth-child(1) {
   transform: rotate(-45deg);
@@ -215,7 +215,7 @@ header .menu-trigger[aria-expanded=true] + .sp_login_btn {
 header .navbar-collapse .close_under {
   display: none;
   text-align: center;
-  color: #B6002A;
+  color: #6E3A1D;
   position: relative;
   margin: 0 auto;
   align-items: center;
@@ -285,9 +285,7 @@ html {
 }
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 900;
+  font-family: "Hannari";
   font-style: normal;
   font-size: 1.6em;
   color: #000;
@@ -359,7 +357,7 @@ h4 {
 }
 
 .btn_red {
-  background-color: #B6002A;
+  background-color: #6E3A1D;
   color: #fff;
   font-weight: bold;
 }
@@ -371,10 +369,10 @@ h4 {
 
 .btn_wh {
   background-color: #fff;
-  border: 1px solid #B6002A;
+  border: 1px solid #6E3A1D;
 }
 .btn_wh a, .btn_wh button {
-  color: #B6002A;
+  color: #6E3A1D;
   padding: 0 !important;
   font-weight: bold;
 }
@@ -444,7 +442,7 @@ h4 {
 
 .title_line_left {
   font-size: 18px;
-  border-left: 2px solid #B6002A;
+  border-left: 2px solid #6E3A1D;
   padding-left: 17px;
   margin-bottom: 30px;
   font-weight: bold;
@@ -459,7 +457,7 @@ h4 {
 }
 .title_line_left.required::after {
   content: "*";
-  color: #B6002A;
+  color: #6E3A1D;
   margin-left: 5px;
 }
 
@@ -473,7 +471,7 @@ h4 {
 .title_line_bottom::before {
   content: " ";
   position: absolute;
-  background-color: #B6002A;
+  background-color: #6E3A1D;
   width: 20px;
   height: 2px;
   bottom: -10px;
@@ -482,7 +480,7 @@ h4 {
 }
 
 ul.red {
-  color: #B6002A;
+  color: #6E3A1D;
   list-style: disc;
   width: max-content;
 }
@@ -504,7 +502,7 @@ ul.red {
   font-size: 16px;
 }
 .text_red {
-  color: #B6002A;
+  color: #6E3A1D;
 }
 
 .text_s {
@@ -512,7 +510,7 @@ ul.red {
 }
 
 .error_msg {
-  color: #B6002A;
+  color: #6E3A1D;
   font-size: 14px;
   padding: 0 0 0 22px;
   margin-top: 10px;
@@ -618,7 +616,7 @@ ul.red {
   padding: 8px;
 }
 .contents .input_wrap .form-control.error_input {
-  border: 1px solid #B6002A;
+  border: 1px solid #6E3A1D;
 }
 .contents .btn_red[name=login] {
   color: #fff;
@@ -920,12 +918,12 @@ ul.red {
   margin-left: 12px;
 }
 .service_btns .item.active {
-  border: 2px solid #B6002A;
+  border: 2px solid #6E3A1D;
 }
 .service_btns .item.active p {
   color: #fff;
   pointer-events: none;
-  background-color: #B6002A;
+  background-color: #6E3A1D;
   border: none;
 }
 .service_btns .item.active p::before {
@@ -1065,10 +1063,10 @@ ul.red {
   width: 23%;
   padding: 37px 0;
   border-radius: 4px;
-  border: 2px solid #B6002A;
+  border: 2px solid #6E3A1D;
   background: #FFF;
   font-size: 16px;
-  color: #B6002A;
+  color: #6E3A1D;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1310,7 +1308,7 @@ ul.red {
   }
 }
 .mypage .modal-dialog .modal-content .modal-body .social_block ul li p.done {
-  background-color: #B6002A;
+  background-color: #6E3A1D;
   color: #fff;
 }
 .mypage .modal-dialog .modal-content .modal-body .social_block ul li p.done::before {
@@ -1326,7 +1324,7 @@ ul.red {
   background: #FFF;
 }
 .mypage .modal-dialog .modal-content .modal-body .social_block ul li .btn_wh {
-  color: #B6002A;
+  color: #6E3A1D;
   font-weight: bold;
   width: 270px;
 }
@@ -1482,7 +1480,7 @@ ul.red {
   margin: 60px auto 0;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #B6002A;
+  border-bottom: 1px solid #6E3A1D;
   padding-bottom: 15px;
 }
 @media screen and (max-width: 1199px) {
@@ -1551,7 +1549,7 @@ ul.red {
 }
 .profile dl div dt.required span::before {
   content: "*";
-  color: #B6002A;
+  color: #6E3A1D;
   position: absolute;
   right: -22px;
   top: -5px;
@@ -1565,7 +1563,7 @@ ul.red {
   }
 }
 .profile .required_text {
-  color: #B6002A;
+  color: #6E3A1D;
   margin-bottom: 17px;
 }
 .profile .check_wrap {
@@ -1617,7 +1615,7 @@ ul.red {
   }
 }
 .complete_provisional ul {
-  color: #B6002A;
+  color: #6E3A1D;
   list-style: disc;
 }
 
