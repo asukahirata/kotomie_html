@@ -12,13 +12,5 @@ footer {
   @include common.mq('sp') {
     padding: 8px 0;
   }
-  small {
-    color: #fff;
-    font-size: 12px;
-    text-align: center;
-    display: block;
-    @include common.mq('sp') {
-      font-size: 10px;
-    }
-  }
+  
 }
