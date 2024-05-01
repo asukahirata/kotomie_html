@@ -249,18 +249,21 @@ img {
   items
 
 ---------------------------------*/
+.items {
+  border-top: 1px solid #000;
+}
 .items .item {
   display: flex;
   align-items: center;
-}
-.items .item:first-child img {
-  order: 1;
-}
-.items .item:first-child .text_wrap {
-  order: 2;
+  position: relative;
 }
 .items .item img {
   width: 50%;
+  position: absolute;
+}
+.items .item .text_wrap {
+  background-color: #EEEEEE;
+  width: 70%;
 }
 .items .item .text_wrap .title {
   font-size: 2.8rem;
@@ -270,4 +273,73 @@ img {
 }
 .items .item .text_wrap .text {
   font-size: 1.8rem;
+}
+.items .item:first-child {
+  justify-content: right;
+}
+.items .item:first-child img {
+  order: 1;
+  left: 0;
+  top: 20%;
+}
+.items .item:first-child .text_wrap {
+  order: 2;
+  padding: 20rem 0 6% 25%;
+}
+.items .item:nth-child(2) {
+  margin-top: 15%;
+}
+.items .item:nth-child(2) img {
+  right: 0;
+  top: -15%;
+}
+.items .item:nth-child(2) .text_wrap {
+  padding: 6rem 18% 6rem 10rem;
+}
+
+/*---------------------------------
+
+  shikumi
+
+---------------------------------*/
+.shikumi {
+  background-color: #FDFFE3;
+  padding-top: 9rem;
+}
+.shikumi .title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 2.8rem;
+}
+.shikumi .title::after {
+  content: " ";
+  width: 100px;
+  height: 1px;
+  background-color: #000;
+  display: inline-block;
+  margin-top: 3rem;
+}
+.shikumi .img_wrap {
+  position: relative;
+}
+.shikumi .img_wrap img {
+  width: 35%;
+  margin: 5rem auto;
+}
+.shikumi .img_wrap .text {
+  font-size: 1.6rem;
+  position: absolute;
+}
+.shikumi .img_wrap .text.text_left {
+  text-align: right;
+  bottom: 8%;
+  left: 16%;
+}
+.shikumi .img_wrap .text.text_right {
+  text-align: left;
+  right: 16%;
+  top: 10%;
 }/*# sourceMappingURL=style.css.map */
