@@ -334,7 +334,7 @@ img {
   }
 }
 .menu ul {
-  width: min(800px, 90%);
+  width: min(800px, 95%);
   padding-left: 3rem;
   margin: 0 auto;
   display: flex;
@@ -360,8 +360,10 @@ img {
 @media screen and (max-width: 1199px) {
   .menu ul::before {
     transform: rotate(0deg);
-    width: 100%;
     position: relative;
+    left: inherit;
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 }
 .menu ul li {
@@ -377,14 +379,38 @@ img {
   justify-content: space-between;
   width: 100%;
   color: #8D8D8D;
-  padding: 2.6rem 0 2.6rem 10px;
+  padding: 2.6rem 2.6rem 2.6rem 1rem;
+  font-size: 1.8rem;
+  position: relative;
+}
+@media screen and (max-width: 1199px) {
+  .menu ul li a {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .menu ul li a {
+    font-size: 1.4rem;
+    padding: 1rem 2.6rem 1rem 1rem;
+  }
 }
 .menu ul li a::after {
   content: " ";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   background-image: url(../img/menu_arrow.svg);
   width: 35px;
   height: 35px;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 1199px) {
+  .menu ul li a::after {
+    width: 25px;
+    height: 25px;
+  }
 }
 
 /*---------------------------------
@@ -407,8 +433,9 @@ img {
   }
 }
 .items .item img {
-  width: 50%;
+  width: min(960px, 50%);
   position: absolute;
+  z-index: 3;
 }
 @media screen and (max-width: 1199px) {
   .items .item img {
