@@ -66,6 +66,20 @@ img {
   }
 }
 
+
+
+//下からフェードアップして表示
+.fade_up{
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.fade_up.is-active {
+  transition: 1s;
+  transform: translateY(0);
+  opacity: 1;
+}
+
 /*---------------------------------
 
   mv, top_text
@@ -76,6 +90,9 @@ img {
   background-image: url(../img/mv_bg.png);
   background-size: cover;
   padding: 130px 0;
+  @include common.mq('sp') {
+    padding: 40px 0;
+  }
   img {
     margin: 0 auto;
     width: min(867px, 90%);
@@ -87,7 +104,7 @@ img {
   &::before {
     content: " ";
     position: absolute;
-    width: 20%;
+    width: 100%;
     height: 1px;
     background-color: common.$main_color;
     left: 0;
@@ -98,7 +115,7 @@ img {
   &::after {
     content: " ";
     position: absolute;
-    width: 20%;
+    width: 100%;
     height: 1px;
     background-color: common.$main_color;
     right: 0;
@@ -115,29 +132,49 @@ img {
     padding: 60px 70px 16px;
     text-align: center;
     background-color: #fff;
+    @include common.mq('sp') {
+      padding: 30px 20px 16px;
+    }
   }
   p {
     &:nth-child(1) {
       font-size: 6rem;
       margin-bottom: 2rem;
+      @include common.mq('sp') {
+        font-size: 3rem;
+      }
     }
     &:nth-child(2) {
       font-size: 2rem;
       margin-bottom: 5rem;
+      @include common.mq('sp') {
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+      }
     }
     &:nth-child(3),
     &:nth-child(5) {
       font-size: 3rem;
       color: common.$main_color;
+      @include common.mq('sp') {
+        font-size: 1.8rem;
+      }
     }
     &:nth-child(4) {
       font-size: 1.6rem;
       margin: 2rem 0;
       color: common.$main_color;
+      @include common.mq('sp') {
+        font-size: 1.4rem;
+      }
     }
     &:nth-child(6) {
       font-size: 1.6rem;
       margin: 3rem 0 6rem;
+      @include common.mq('sp') {
+        font-size: 1.4rem;
+        margin: 1rem 0 3rem;
+      }
     }
     &:nth-child(7) {
       font-size: 1rem;
@@ -176,6 +213,12 @@ img {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 6rem;
+    @include common.mq('tab') {
+      font-size: 1.6rem;
+    }
+    @include common.mq('sp') {
+      font-size: 1.4rem;
+    }
   }
   ul {
     width: min(800px, 90%);
@@ -186,6 +229,10 @@ img {
     justify-content: flex-end;
     flex-wrap: wrap;
     position: relative;
+    @include common.mq('tab') {
+      flex-direction: column;
+      padding-left: 0rem;
+    }
     &::before {
       content: "ーMENU";
       position: absolute;
@@ -193,6 +240,11 @@ img {
       left: -3rem;
       color: #8D8D8D;
       transform: rotate(90deg);
+      @include common.mq('tab') {
+        transform: rotate(0deg);
+        width: 100%;
+        position: relative;
+      }
     }
     li {
       width: calc(100% - 6rem);
@@ -231,21 +283,46 @@ img {
     display: flex;
     align-items: center;
     position: relative;
+    @include common.mq('tab') {
+      flex-direction: column;
+      margin: 1rem auto;
+    }
     img {
       width: 50%;
       position: absolute;
+      @include common.mq('tab') {
+        position: relative;
+        width: 95%;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+      }
     }
     .text_wrap {
       background-color: #EEEEEE;
       width: 70%;
+      @include common.mq('tab') {
+        width: 100%;
+      }
       .title {
         font-size: 2.8rem;
         border-bottom: 1px solid common.$text_color;
         padding-bottom: 2rem;
         margin-bottom: 2rem;
+        @include common.mq('tab') {
+          font-size: 2rem;
+        }
+        @include common.mq('sp') {
+          padding-bottom: 1rem;
+        }
       }
       .text {
         font-size: 1.8rem;
+        @include common.mq('tab') {
+          font-size: 1.6rem;
+        }
+        @include common.mq('sp') {
+          font-size: 1.4rem;
+        }
       }
     }
     &:first-child {
@@ -258,16 +335,25 @@ img {
       .text_wrap {
         order: 2;
         padding: 20rem 0 6% 25%;
+        @include common.mq('tab') {
+          padding: 2rem;
+        }
       }
     }
     &:nth-child(2) {
       margin-top: 15%;
+      @include common.mq('tab') {
+        margin-top: 2rem;
+      }
       img {
         right: 0;
         top: -15%;
       }
       .text_wrap {
         padding: 6rem 18% 6rem 10rem;
+        @include common.mq('tab') {
+          padding: 2rem;
+        }
       }
     }
   }
@@ -282,6 +368,9 @@ img {
 .shikumi {
   background-color: #FDFFE3;
   padding-top: 9rem;
+  @include common.mq('tab') {
+    padding-top: 3rem;
+  }
   .title {
     text-align: center;
     display: flex;
@@ -289,6 +378,9 @@ img {
     justify-content: center;
     flex-direction: column;
     font-size: 2.8rem;
+    @include common.mq('tab') {
+      font-size: 1.8rem;
+    }
     &::after {
       content: " ";
       width: 100px;
@@ -296,26 +388,99 @@ img {
       background-color: common.$text_color;
       display: inline-block;
       margin-top: 3rem;
+      @include common.mq('tab') {
+        width: 60px;
+        margin-top: 1.8rem;
+      }
+      
     }
   }
   .img_wrap {
     position: relative;
     img {
-      width: 35%;
+      width: min(900px, 88%);
       margin: 5rem auto;
     }
-    .text {
-      font-size: 1.6rem;
-      position: absolute;
-      &.text_left {
-        text-align: right;
-        bottom: 8%;
-        left: 16%;
+  }
+  .hyakutomo {
+    position: relative;
+    z-index: 3;
+    @include common.inner;
+    background-color: #fff;
+    padding: 3rem 16rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include common.mq('tab') {
+      padding: 3rem 1rem;
+      font-size: 1.4rem;
+    }
+    > div {
+      text-align: center;
+      width: 53%;
+      @include common.mq('tab') {
+        width: 100%;
       }
-      &.text_right {
-        text-align: left;
-        right: 16%;
-        top: 10%;
+      img {
+        width: 50%;
+        margin: 2.4rem auto;
+        @include common.mq('tab') {
+          width: 60%;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    > img {
+      width: 45%;
+      @include common.mq('tab') {
+        width: 100%;
+        margin-top: 3rem;
+      }
+    }
+  }
+  .btn_wrap {
+    background-color: #EEEEEE;
+    position: relative;
+    z-index: 2;
+    margin-top: -6%;
+    padding: 10% 0 4%;
+    a {
+      width: min(800px, 90%);
+      margin: 0 auto;
+      border-radius: 100px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      padding: 13px 0;
+      justify-content: center;
+      background-color: #C7000B;
+      color: #fff;
+      font-size: 2.4rem;
+      position: relative;
+      @include common.mq('tab') {
+        font-size: 1.8rem;
+      }
+      &::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 4rem;
+        background-image: url(../img/arrow.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 28px;
+        height: 36px;
+        @include common.mq('tab'){
+          width: 20px;
+          height: 25px;
+          right: 2rem;
+        }
+        @include common.mq('sp'){
+          width: 10px;
+          height: 13px;
+          right: 1rem;
+        }
       }
     }
   }
