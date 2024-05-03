@@ -525,10 +525,11 @@ img {
 }
 /*---------------------------------
 
-  募集要項ページ
+  募集要項ページ、ご利用の流れページ共通
 
 ---------------------------------*/
-.requirements {
+.requirements,
+.flow {
   .contents{
     background-color: #D9D8D8;
     padding: 6rem 0 10rem;
@@ -551,6 +552,19 @@ img {
       @include common.mq('sp'){
         padding: 3rem 1.5rem;
       }
+    }
+  }
+}
+
+
+/*---------------------------------
+
+  募集要項ページ
+
+---------------------------------*/
+.requirements {
+  .contents{
+    .inner {
       .title {
         text-align: center;
         border-bottom: 1px solid common.$text_color;
@@ -623,4 +637,84 @@ img {
       }
     }
   }
+}
+
+/*---------------------------------
+
+  ご利用の流れページ
+
+---------------------------------*/
+.flow {
+  .inner {
+    .title {
+      text-align: center;
+      border-radius: 10px;
+      font-size: 2rem;
+      padding: 9px 0;
+      width: min(400px, 100%);
+      color: #fff;
+      margin: 0 auto 3rem;
+      @include common.mq('sp'){
+        font-size: 1.8rem;
+      }
+      &_red {
+        background-color: #C7000B;
+      }
+      &_blue {
+        background-color: #19007E;
+      }
+    }
+    dl {
+      div {
+        border: 2px solid common.$text_color;
+        border-radius: 10px;
+        padding: 1.4rem 2rem;
+        background-color: #FDFFE3;
+        text-align: center;
+        margin-bottom: 5rem;
+        position: relative;
+        &:not(:last-child) {
+          &::after {
+            content: " ";
+            background-image: url(../img/arrow_black.svg);
+            width: 16px;
+            height: 40px;
+            position: absolute;
+            background-size: contain;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        dt {
+          font-size: 2.2rem;
+          margin-bottom: 1rem;
+          @include common.mq('sp'){
+            font-size: 1.8rem;
+          }
+          span {
+            border-radius: 30px;
+            font-size: 2rem;
+            padding: 2px 5px;
+            margin-right: 5px;
+            color: #fff;
+            &.red {
+              background-color: #C7000B;
+            }
+            &.blue {
+              background-color: #19007E;
+            }
+          }
+        }
+        dd {
+          font-size: 1.8rem;
+          @include common.mq('sp'){
+            text-align: left;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+
 }
