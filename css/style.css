@@ -1,11 +1,6 @@
 @charset "UTF-8";
 /*---------------------------------
 
-  header
-
----------------------------------*/
-/*---------------------------------
-
   footer
 
 ---------------------------------*/
@@ -664,5 +659,148 @@ img {
     width: 10px;
     height: 13px;
     right: 1rem;
+  }
+}
+
+.header {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/header_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: 1199px) {
+  .header {
+    height: 120px;
+  }
+}
+.header img {
+  width: min(900px, 90%);
+}
+
+/*---------------------------------
+
+  募集要項ページ
+
+---------------------------------*/
+.requirements .contents {
+  background-color: #D9D8D8;
+  padding: 6rem 0 10rem;
+}
+.requirements .contents > .title {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents > .title {
+    font-size: 2rem;
+  }
+}
+.requirements .contents .inner {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 6rem 8rem;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents .inner {
+    padding: 3rem 4rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .requirements .contents .inner {
+    padding: 3rem 1.5rem;
+  }
+}
+.requirements .contents .inner .title {
+  text-align: center;
+  border-bottom: 1px solid #000;
+  font-size: 2.4rem;
+  padding-bottom: 2rem;
+  margin-bottom: 4rem;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents .inner .title {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .requirements .contents .inner .title {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+.requirements .contents .inner .text {
+  font-size: 1.7rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents .inner .text {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 630px) {
+  .requirements .contents .inner .text {
+    font-size: 1.4rem;
+  }
+}
+.requirements .contents .inner .sb_title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2.8rem;
+  margin-top: 6rem;
+}
+@media screen and (max-width: 630px) {
+  .requirements .contents .inner .sb_title {
+    font-size: 1.6rem;
+  }
+}
+.requirements .contents .inner ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents .inner ul {
+    justify-content: space-between;
+  }
+}
+.requirements .contents .inner ul li {
+  text-align: center;
+  font-size: 1.8rem;
+  width: calc((100% - 75px) / 4);
+  background-color: #BE9461;
+  height: 8rem;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents .inner ul li {
+    font-size: 1.6rem;
+    width: 32%;
+  }
+}
+@media screen and (max-width: 630px) {
+  .requirements .contents .inner ul li {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+}
+.requirements .contents .inner ul li:not(:nth-child(4)) {
+  margin-right: 25px;
+}
+@media screen and (max-width: 1199px) {
+  .requirements .contents .inner ul li:not(:nth-child(4)) {
+    margin-right: inherit;
   }
 }/*# sourceMappingURL=style.css.map */

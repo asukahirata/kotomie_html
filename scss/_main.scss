@@ -506,3 +506,121 @@ img {
     }
   }
 }
+
+.header {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/header_bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include common.mq('tab'){
+    height: 120px;
+  }
+  img {
+    width: min(900px, 90%);
+  }
+}
+/*---------------------------------
+
+  募集要項ページ
+
+---------------------------------*/
+.requirements {
+  .contents{
+    background-color: #D9D8D8;
+    padding: 6rem 0 10rem;
+    > .title {
+      text-align: center;
+      font-size: 4rem;
+      margin-bottom: 4rem;
+      @include common.mq('tab'){
+        font-size: 2rem;
+      }
+    }
+    .inner {
+      @include common.inner;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 6rem 8rem;
+      @include common.mq('tab'){
+        padding: 3rem 4rem;
+      }
+      @include common.mq('sp'){
+        padding: 3rem 1.5rem;
+      }
+      .title {
+        text-align: center;
+        border-bottom: 1px solid common.$text_color;
+        font-size: 2.4rem;
+        padding-bottom: 2rem;
+        margin-bottom: 4rem;
+        @include common.mq('tab'){
+          font-size: 1.8rem;
+        }
+        @include common.mq('sp'){
+          padding-bottom: 1rem;
+          margin-bottom: 2rem;
+        }
+      }
+      .text {
+        font-size: 1.7rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        @include common.mq('tab'){
+          text-align: left;
+        }
+        @include common.mq('sp'){
+          font-size: 1.4rem;
+          
+        }
+      }
+      .sb_title {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 2.8rem;
+        margin-top: 6rem;
+        @include common.mq('sp'){
+          font-size: 1.6rem;
+        }
+      }
+      ul {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        @include common.mq('tab'){
+          justify-content: space-between;
+        }
+        li {
+          text-align: center;
+          font-size: 1.8rem;
+          width: calc( ( 100% - 75px ) / 4 );
+          background-color: #BE9461;
+          height: 8rem;
+          color: #fff;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 25px;
+          @include common.mq('tab'){
+            font-size: 1.6rem;
+            width: 32%;
+          }
+          @include common.mq('sp'){
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+          }
+          &:not(:nth-child(4)) {
+            margin-right: 25px;
+            @include common.mq('tab'){
+              margin-right:inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+}
