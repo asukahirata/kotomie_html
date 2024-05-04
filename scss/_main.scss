@@ -742,6 +742,11 @@ img {
       background-image: url(../img/header_bg_profile3.png);
     }
   }
+  &.profile04 {
+    .header {
+      background-image: url(../img/header_bg_profile4.png);
+    }
+  }
   .contents {
     border-bottom: 1px solid #6E3A1D;
     .inner {
