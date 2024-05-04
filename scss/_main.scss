@@ -513,7 +513,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/header_bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   @include common.mq('tab'){
@@ -530,6 +529,9 @@ img {
 ---------------------------------*/
 .requirements,
 .flow {
+  .header {
+    background-image: url(../img/header_bg.png);
+  }
   .contents{
     background-color: #D9D8D8;
     padding: 6rem 0 10rem;
@@ -717,4 +719,158 @@ img {
     }
   }
 
+}
+
+/*---------------------------------
+
+  プロフィール
+
+---------------------------------*/
+.profile {
+  .header {
+    background-image: url(../img/header_bg_profile1.png);
+  }
+  .contents {
+    border-bottom: 1px solid #6E3A1D;
+    .inner {
+      width: min(1280px, 90%);
+      margin: 0 auto;
+      border-left: 1px solid #6E3A1D;
+      border-right: 1px solid #6E3A1D;
+      padding: 5rem 5%;
+    }
+    .img_wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      img {
+        width: 50%;
+        @include common.mq('tab'){
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+      }
+      .text_wrap {
+        margin: 0 auto 0 4rem;
+        @include common.mq('tab'){
+          margin: 0;
+        }
+        .company_name {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+          @include common.mq('tab') {
+            font-size: 3rem;
+          }
+          @include common.mq('sp') {
+            font-size: 2.2rem;
+            margin-bottom: .6rem;
+          }
+        }
+        .company_title {
+          font-size: 1.6rem;
+          margin-bottom: .5rem;
+          @include common.mq('sp') {
+            font-size: 1.4rem;
+          }
+        }
+        .name {
+          font-size: 2.6rem;
+          @include common.mq('tab') {
+            font-size: 2rem;
+          }
+          @include common.mq('sp') {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+    .text_block {
+      margin-bottom: 5rem;
+      .title {
+        font-size: 2rem;
+        border-bottom: 1px solid #000;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+        @include common.mq('sp') {
+          font-size: 1.6rem;
+        }
+      }
+      .text {
+        font-size: 1.6rem;
+        @include common.mq('sp') {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .profile_items {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      margin-bottom: 5rem;
+      .item {
+        width: 23%;
+        @include common.mq('tab'){
+          width: 48%;
+          margin-bottom: 2rem;
+        }
+        p {
+          text-align: center;
+          margin-bottom: 1rem;
+          font-size: 1.4rem;
+          @include common.mq('sp') {
+            font-size: 1.2rem;
+            margin-bottom: .6rem;
+          }
+        }
+      }
+    }
+    .btn_wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      a {
+        width: 48%;
+        margin-bottom: 2rem;
+        color: #fff;
+        border-radius: 100px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 13px 0;
+        justify-content: center;
+        background-color: #C7000B;
+        color: #fff;
+        font-size: 2rem;
+        position: relative;
+        @include common.mq('tab') {
+          font-size: 1.8rem;
+        }
+        @include common.mq('sp') {
+          font-size: 1.4rem;
+          padding: 6px 0;
+          width: 100%;
+        }
+        &::after {
+        content: " ";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2rem;
+        background-image: url(../img/arrow.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 16px;
+        height: 20px;
+        @include common.mq('sp'){
+          width: 10px;
+          height: 13px;
+          right: 1rem;
+        }
+        }
+      }
+    }
+  }
 }
