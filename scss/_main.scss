@@ -737,6 +737,11 @@ img {
       background-image: url(../img/header_bg_profile2.png);
     }
   }
+  &.profile03 {
+    .header {
+      background-image: url(../img/header_bg_profile3.png);
+    }
+  }
   .contents {
     border-bottom: 1px solid #6E3A1D;
     .inner {
@@ -888,7 +893,8 @@ img {
   }
 }
 
-.profile02 {
+.profile02,
+.profile03 {
   .item:last-child {
     margin: 0 auto 0 20px;
     @include common.mq('tab'){

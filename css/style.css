@@ -908,6 +908,9 @@ img {
 .profile.profile02 .header {
   background-image: url(../img/header_bg_profile2.png);
 }
+.profile.profile03 .header {
+  background-image: url(../img/header_bg_profile3.png);
+}
 .profile .contents {
   border-bottom: 1px solid #6E3A1D;
 }
@@ -1084,11 +1087,13 @@ img {
   }
 }
 
-.profile02 .item:last-child {
+.profile02 .item:last-child,
+.profile03 .item:last-child {
   margin: 0 auto 0 20px;
 }
 @media screen and (max-width: 1199px) {
-  .profile02 .item:last-child {
+  .profile02 .item:last-child,
+  .profile03 .item:last-child {
     margin: inherit;
   }
 }/*# sourceMappingURL=style.css.map */
