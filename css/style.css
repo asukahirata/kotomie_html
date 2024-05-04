@@ -902,8 +902,11 @@ img {
   プロフィール
 
 ---------------------------------*/
-.profile .header {
+.profile.profile01 .header {
   background-image: url(../img/header_bg_profile1.png);
+}
+.profile.profile02 .header {
+  background-image: url(../img/header_bg_profile2.png);
 }
 .profile .contents {
   border-bottom: 1px solid #6E3A1D;
@@ -992,6 +995,10 @@ img {
 }
 .profile .contents .text_block .text {
   font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.profile .contents .text_block .text span.red {
+  color: #C7000B;
 }
 @media screen and (max-width: 630px) {
   .profile .contents .text_block .text {
@@ -1074,5 +1081,14 @@ img {
     width: 10px;
     height: 13px;
     right: 1rem;
+  }
+}
+
+.profile02 .item:last-child {
+  margin: 0 auto 0 20px;
+}
+@media screen and (max-width: 1199px) {
+  .profile02 .item:last-child {
+    margin: inherit;
   }
 }/*# sourceMappingURL=style.css.map */

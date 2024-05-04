@@ -727,8 +727,15 @@ img {
 
 ---------------------------------*/
 .profile {
-  .header {
-    background-image: url(../img/header_bg_profile1.png);
+  &.profile01 {
+    .header {
+      background-image: url(../img/header_bg_profile1.png);
+    }
+  }
+  &.profile02 {
+    .header {
+      background-image: url(../img/header_bg_profile2.png);
+    }
   }
   .contents {
     border-bottom: 1px solid #6E3A1D;
@@ -799,6 +806,12 @@ img {
       }
       .text {
         font-size: 1.6rem;
+        margin-bottom: 1rem;
+        span {
+          &.red {
+            color: #C7000B;
+          }
+        }
         @include common.mq('sp') {
           font-size: 1.4rem;
         }
@@ -871,6 +884,15 @@ img {
         }
         }
       }
+    }
+  }
+}
+
+.profile02 {
+  .item:last-child {
+    margin: 0 auto 0 20px;
+    @include common.mq('tab'){
+      margin: inherit;
     }
   }
 }
