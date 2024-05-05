@@ -1099,4 +1099,99 @@ img {
   .profile03 .item:last-child {
     margin: inherit;
   }
+}
+
+/*---------------------------------
+
+  ラインナップ
+
+---------------------------------*/
+.lineup .header {
+  background-image: url(../img/header_bg_lineup.png);
+}
+.lineup .lineup_title {
+  width: min(1280px, 90%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  border-left: 1px solid #6E3A1D;
+  border-right: 1px solid #6E3A1D;
+  border-bottom: 1px solid #6E3A1D;
+}
+.lineup .lineup_title p {
+  width: min(900px, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+.lineup .lineup_title p span {
+  color: #8D8D8D;
+  font-size: 3rem;
+}
+.lineup .item_wrap {
+  background-color: #FDFFE3;
+}
+.lineup .item_wrap .inner {
+  width: min(1280px, 90%);
+  margin: 0 auto;
+  border-left: 1px solid #6E3A1D;
+  border-right: 1px solid #6E3A1D;
+  padding: 6rem 0;
+}
+.lineup .item_wrap .name_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.lineup .item_wrap .name_wrap p {
+  font-size: 4rem;
+  margin-right: 2rem;
+}
+.lineup .item_wrap .name_wrap a {
+  width: 320px;
+  border-radius: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 13px 0;
+  justify-content: center;
+  background-color: #C7000B;
+  color: #fff;
+  font-size: 2rem;
+  position: relative;
+}
+@media screen and (max-width: 1199px) {
+  .lineup .item_wrap .name_wrap a {
+    font-size: 1.6rem;
+  }
+}
+.lineup .item_wrap .name_wrap a::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4rem;
+  background-image: url(../img/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 28px;
+  height: 36px;
+}
+@media screen and (max-width: 1199px) {
+  .lineup .item_wrap .name_wrap a::after {
+    width: 20px;
+    height: 25px;
+    right: 2rem;
+  }
+}
+@media screen and (max-width: 630px) {
+  .lineup .item_wrap .name_wrap a::after {
+    width: 10px;
+    height: 13px;
+    right: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */
