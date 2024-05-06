@@ -917,6 +917,9 @@ img {
   .header {
     background-image: url(../img/header_bg_lineup.png);
   }
+  .contents {
+    border-bottom: 1px solid #6E3A1D;
+  }
   .lineup_title {
     width: min(1280px, 90%);
     margin: 0 auto;
@@ -927,20 +930,55 @@ img {
     border-left: 1px solid #6E3A1D;
     border-right: 1px solid #6E3A1D;
     border-bottom: 1px solid #6E3A1D;
+    @include common.mq('sp') {
+      padding: 3rem 0;
+    }
     p {
       width: min(900px, 90%);
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       font-size: 5rem;
+      @include common.mq('sp'){
+        font-size: 3rem;
+      }
       span {
         color: #8D8D8D;
         font-size: 3rem;
+        @include common.mq('sp'){
+          font-size: 1.6rem;
+        }
       }
     }
   }
   .item_wrap {
     background-color: #FDFFE3;
+    &:nth-child(3) {
+      background-color: #FFDEAC;
+    }
+    &:nth-child(4) {
+      background-color: #F2FFCE;
+      .item {
+        img {
+          order: 2;
+          @include common.mq('tab'){
+            order: 1;
+          }
+        }
+        .text_wrap {
+          order: 1;
+          margin: 0 auto 0 6rem !important;
+          @include common.mq('tab'){
+            order: 2;
+            margin: 1rem auto 0 3rem !important;
+          }
+        }
+      }
+    }
+    &:nth-child(5) {
+      background-color: #DAF8FF;
+    }
     .inner {
       width: min(1280px, 90%);
       margin: 0 auto;
@@ -953,9 +991,18 @@ img {
       align-items: center;
       justify-content: center;
       margin-bottom: 5rem;
+      @include common.mq('sp'){
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+      }
+      
       p {
         font-size: 4rem;
         margin-right: 2rem;
+        @include common.mq('sp'){
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
       }
       a {
         width: 320px;
@@ -972,29 +1019,92 @@ img {
         @include common.mq('tab') {
           font-size: 1.6rem;
         }
+        @include common.mq('sp') {
+          padding: 8px 0;
+        }
         &::after {
           content: " ";
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          right: 4rem;
+          right: 2rem;
           background-image: url(../img/arrow.svg);
           background-repeat: no-repeat;
           background-size: cover;
-          width: 28px;
-          height: 36px;
-          @include common.mq('tab'){
-            width: 20px;
-            height: 25px;
-            right: 2rem;
-          }
+          width: 16px;
+          height: 20px;
           @include common.mq('sp'){
             width: 10px;
             height: 13px;
-            right: 1rem;
           }
         }
       }
+    }
+    .item {
+      position: relative;
+      margin-bottom: 6%;
+      display: flex;
+      align-items: center;
+      @include common.mq('tab'){
+        flex-wrap: wrap;
+      }
+      img {
+        margin: 0 calc(60% - 60vw);
+        width: 60vw;
+        @include common.mq('tab'){
+          margin: 0 auto;
+          width: 90%;
+        }
+      }
+      .text_wrap {
+        width: max-content;
+        z-index: 3;
+        p {
+          line-height: 1;
+          &:nth-child(1) {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            @include common.mq('sp') {
+              font-size: 1.8rem;
+              margin-bottom: 1rem;
+            }
+          }
+          &:nth-child(2) {
+            font-size: 4rem;
+            span {
+              font-size: 1.6rem;
+            }
+            @include common.mq('sp') {
+              font-size: 2.8rem;
+            }
+          }
+        }
+      }
+      &:nth-of-type(even) {
+        .text_wrap {
+          margin: 0 15% 0 auto;
+          @include common.mq('tab'){
+            margin: 1rem auto 0 3rem;
+          }
+        }
+      }
+      &:nth-of-type(odd) {
+        img {
+          order: 2;
+          @include common.mq('tab'){
+            order: 1;
+          }
+        }
+        .text_wrap {
+          order: 1;
+          margin: 0 auto 0 6rem; 
+          @include common.mq('tab'){
+            order: 2;
+            margin: 1rem auto 0 3rem;
+          }
+        }
+      }
+      
     }
   }
 }
